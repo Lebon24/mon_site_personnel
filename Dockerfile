@@ -1,16 +1,13 @@
-FROM python:3.11-slim
+FROM node:18-bookworm
 
-ENV DEBIAN_FRONTED=noninteraction
-
-RUN apt-get update && apt-get install -y --no-install-recommends libpq-dev build-essentail && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libpq5
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY package*.json ./
+RUN npm install
 
 
 COPY . .
-EXPOSE 8000
 
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["npm", "start"]
