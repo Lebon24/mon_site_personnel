@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - Mon Site{% endblock %}
+
+{% block content %}
+<!-- Hero Section Blog -->
+<section class="bg-gradient-to-r from-purple-500 to-pink-600 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-4">Mon Blog</h1>
+        <p class="text-xl">Partages, tutoriels et réflexions sur le développement</p>
+    </div>
+</section>
+
+<!-- Articles -->
+<section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+        {% for article in articles %}
+        <article class="mb-12 pb-12 border-b border-gray-200 last:border-b-0">
+            <!-- En-tête article -->
+            <div class="flex items-center justify-between mb-4">
+                <time class="text-gray-500 text-sm">{{ article.date_publication|date:"d F Y" }}</time>
+                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                    Publié
+                </span>
+            </div>
+            
+            <!-- Titre et contenu -->
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 hover:text-blue-600 transition-colors">
+                <a href="{% url 'detail_article' article.id %}">
+                    {{ article.titre }}
+                </a>
+            </h2>
+            
+            <div class="prose max-w-none text-gray-600 leading-relaxed">
+                {{ article.contenu|linebreaks }}
+            </div>
+            
+            <!-- Bouton lire plus (optionnel) -->
+            <div class="mt-6">
+                <a href="{% url 'detail_article' article.id %}">
+                    <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                        Lire la suite →
+                    </button>
+                </a>
+            </div>
+        </article>
+        {% empty %}
+        <div class="text-center py-16">
+            <div class="text-6xl mb-4">📝</div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Aucun article pour le moment</h3>
+            <p class="text-gray-600 mb-8">Je prépare du contenu passionnant, revenez bientôt !</p>
+            <a href="{% url 'contact' %}" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                Me suggérer un sujet
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

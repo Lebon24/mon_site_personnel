@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block title %}Portfolio - Mon Site{% endblock %}
+
+{% block content %}
+<!-- Hero Section Portfolio -->
+<!-- Script de filtrage -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Retirer la classe active de tous les boutons
+            filterButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'bg-green-600', 'bg-purple-600'));
+            
+            // Ajouter la classe active au bouton cliqué
+            const filter = this.getAttribute('data-filter');
+            if (filter === 'all') {
+                this.classList.add('active', 'bg-blue-600');
+            } else if (filter === 'developpement') {
+                this.classList.add('active', 'bg-green-600');
+            } else if (filter === 'design') {
+                this.classList.add('active', 'bg-purple-600');
+            }
+            
+            // Filtrer les projets
+            projectCards.forEach(card => {
+                const projectCategory = card.getAttribute('data-category');
+                
+                if (filter === 'all' || projectCategory === filter) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+});
+</script>
+
+
+<section class="bg-gradient-to-r from-green-500 to-blue-600 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-4">Mes Projets</h1>
+        <p class="text-xl">Découvrez mes réalisations et compétences techniques</p>
+    </div>
+</section>
+
+<!-- Filtres et projets -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+        <!-- Filtres HTMX (optionnel) -->
+        
+
+        <div class="flex justify-center mb-12 space-x-4">
+            <button class="filter-btn active bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover-scale" 
+                    data-filter="all">
+                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                </svg>
+                Tous les projets
+            </button>
+            
+            <button class="filter-btn bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 hover-scale" 
+                    data-filter="developpement">
+                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+                Développement
+            </button>
+            
+            <button class="filter-btn bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 hover-scale" 
+                    data-filter="design">
+                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                </svg>
+                Design & Infographie
+            </button>
+        </div>
+
+
+        <!-- Grille des projets -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+            {% for projet in projets %}
+            <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover-scale hover-glow transition-all duration-300" 
+                data-category="{{ projet.categorie }}">
+                <!-- Image du projet -->
+                {% if projet.image %}
+                <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
+                    <img src="{{ projet.image.url }}" alt="{{ projet.titre }}" 
+                         class="w-full h-full object-cover">
+                </div>
+                {% else %}
+                <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                    <span class="text-white text-6xl font-bold">{{ forloop.counter }}</span>
+                </div>
+                {% endif %}
+                
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">{{ projet.titre }}</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">{{ projet.description }}</p>
+                    
+                    <!-- Technologies -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% for tech in projet.technologies.split %}
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                            {{ tech }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Boutons d'action -->
+                    <div class="flex space-x-3">
+                        {% if projet.lien_demo %}
+                        <a href="{{ projet.lien_demo }}" target="_blank" 
+                           class="flex-1 bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Voir
+                        </a>
+                        {% endif %}
+                        
+                        {% if projet.lien_code %}
+                        <a href="{{ projet.lien_code }}" target="_blank"
+                           class="flex-1 bg-gray-200 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                            Code
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-3 text-center py-12">
+                <p class="text-gray-500 text-lg">Aucun projet à afficher pour le moment.</p>
+                <p class="text-gray-400">Revenez bientôt !</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">Vous avez un projet en tête ?</h2>
+        <p class="text-gray-600 mb-8 text-lg">
+            N'hésitez pas à me contacter pour discuter de vos idées !
+        </p>
+        <a href="{% url 'contact' %}" 
+           class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+            Me contacter
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section avec animation gradient -->
+<!-- Hero Section avec photo -->
+<section class="animated-gradient text-white py-20 fade-in">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <!-- Texte de présentation -->
+            <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                <h1 class="text-4xl font-bold mb-6 slide-in-left">
+                    <span class="inline-flex items-center">
+                        <svg class="w-10 h-10 mr-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                        Salut, je suis <span class="bg-white/20 px-2 rounded ml-2">Emmanuel Assi</span>
+                    </span>
+                </h1>
+                <p class="text-xl mb-8 slide-in-right">
+                    Développeur Full-Stack passionné par la création de solutions web <strong>modernes</strong> et <strong>performantes</strong>
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 scale-in">
+                    <a href="{% url 'portfolio' %}" 
+                       class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover-scale hover-glow transition-all duration-300 text-center">
+                        📂 Voir mes projets
+                    </a>
+                    <a href="{% url 'contact' %}" 
+                       class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 text-center">
+                        💬 Discutons
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Photo de profil -->
+            <div class="md:w-1/20 flex justify-center">
+                <div class="relative">
+                    <img src="/static/images/photo-profil.JPG" 
+                         alt="Emmanuel Assi - Développeur Full-Stack"
+                         class="w-50 h-80 object-cover rounded-2xl shadow-2xl hover-scale transition-transform duration-300 opacity-90">
+                    <!-- Effet décoratif -->
+                    <div class="absolute -inset-4 bg-blue-500/20 rounded-2xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Expertises -->
+<section class="py-16 bg-white scroll-animate">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Mes Expertises</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Développement Web -->
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover-scale hover-glow transition-all duration-300">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Développement Web</h3>
+                <p class="text-gray-600 text-sm">Sites et applications web modernes et performantes</p>
+            </div>
+
+            <!-- Applications Mobile -->
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover-scale hover-glow transition-all duration-300">
+                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Applications Mobile</h3>
+                <p class="text-gray-600 text-sm">Apps natives et cross-platform pour iOS et Android</p>
+            </div>
+
+            <!-- Applications Desktop -->
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover-scale hover-glow transition-all duration-300">
+                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Applications Desktop</h3>
+                <p class="text-gray-600 text-sm">Logiciels desktop multiplateformes et performants</p>
+            </div>
+
+            <!-- Design UI/UX -->
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover-scale hover-glow transition-all duration-300">
+                <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Design UI/UX</h3>
+                <p class="text-gray-600 text-sm">Interfaces utilisateur intuitives et expériences optimisées</p>
+            </div>
+
+            <!-- Intelligence Artificielle -->
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover-scale hover-glow transition-all duration-300">
+                <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Intelligence Artificielle</h3>
+                <p class="text-gray-600 text-sm">Solutions IA, machine learning et automation intelligente</p>
+            </div>
+
+            <!-- Développement Full-Stack -->
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover-scale hover-glow transition-all duration-300">
+                <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Développement Full-Stack</h3>
+                <p class="text-gray-600 text-sm">Solutions complètes frontend et backend intégrées</p>
+            </div>
+
+            <!-- Architecture Logicielle -->
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover-scale hover-glow transition-all duration-300">
+                <div class="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Architecture Logicielle</h3>
+                <p class="text-gray-600 text-sm">Conception de systèmes scalables et maintenables</p>
+            </div>
+
+            <!-- DevOps & Déploiement -->
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover-scale hover-glow transition-all duration-300">
+                <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">DevOps & Déploiement</h3>
+                <p class="text-gray-600 text-sm">Déploiement, monitoring et optimisation de performances</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projets en vedette -->
+<section class="py-16 bg-gray-50 scroll-animate">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">
+            <span class="inline-flex items-center">
+                <svg class="w-8 h-8 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                </svg>
+                Projets Vedettes
+            </span>
+        </h2>
+        <p class="text-gray-600 text-center mb-12">Quelques-unes de mes réalisations récentes</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for projet in projets %}
+            <div class="bg-white rounded-xl shadow-lg p-6 hover-scale hover-glow transition-all duration-300">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-xl"></span>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-800">{{ projet.titre }}</h3>
+                <p class="text-gray-600 mb-4">{{ projet.description|truncatewords:20 }}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {% for tech in projet.technologies.split %}
+                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-3 text-center py-8">
+                <p class="text-gray-500">Ajoutez vos projets via l'admin Django pour les voir ici !</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-8">
+            <a href="{% url 'portfolio' %}" 
+               class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                Voir tous mes projets
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action final -->
+<section class="py-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center scroll-animate">
+    <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-6">Prêt à démarrer votre projet ?</h2>
+        <p class="text-xl mb-8 opacity-90">Travaillons ensemble pour concrétiser vos idées</p>
+        <a href="{% url 'contact' %}" 
+           class="bg-white text-blue-600 px-10 py-4 rounded-lg font-bold text-lg hover-scale hover-glow transition-all duration-300 inline-block">
+            Commençons maintenant
+        </a>
+    </div>
+</section>
+{% endblock %}

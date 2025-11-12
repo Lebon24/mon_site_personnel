@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+# railway.toml
+=======
+>>>>>>> 25ebdc8 (Ajout du fichier railway.toml pour la configuration)
+[build]
+builder = "Docker"
+
+[deploy]
+<<<<<<< HEAD
+startCommand = "gunicorn config.wsgi:application --bind 0.0.0.0:$PORT"
+=======
+startCommand = "gunicorn config.wsgi:application --build 0.0.0.0:$PORT"
+>>>>>>> 25ebdc8 (Ajout du fichier railway.toml pour la configuration)
