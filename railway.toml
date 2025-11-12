@@ -3,4 +3,4 @@
 builder = "Docker"
 
 [deploy]
-startCommand = "gunicorn config.wsgi:application
+startCommand = "gunicorn config.wsgi:application"
