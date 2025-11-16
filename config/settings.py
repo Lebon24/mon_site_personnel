@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 RENDER = os.environ.get("RENDER")
 if RENDER:
-    ALLOWED_HOSTS.append(os.environ["RENDER_EXTERNAL_HOSTS"])
+    ALLOWED_HOSTS.append(os.environ["RENDER_EXTERNAL_HOSTNAME"])
 
 
 """
