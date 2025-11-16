@@ -33,12 +33,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 RENDER = os.environ.get("RENDER")
 if RENDER:
-<<<<<<< HEAD
     ALLOWED_HOSTS.append(os.environ["RENDER_EXTERNAL_HOSTS"])
-
-=======
-    ALLOWED_HOSTS.append(os.environ["RENDER_EXTRERNAL_HOSTS"])
->>>>>>> 6bebb6076b6508b171bf4e254ffa838d303667ac
 
 
 """
@@ -65,7 +60,7 @@ CRISPY_TEMPLATE_PACK = 'boostrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware,
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
