@@ -55,10 +55,6 @@ INSTALLED_APPS = [
 
 CRISPY_TEMPLATE_PACK = 'boostrap4'
 
-if 'RENDER' in os.environ:
-    ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME', ''))
-MIDDLEWARE.insert(1, 'whirenoise.middleware.WhiteNoiseMiddleware')
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -69,6 +65,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+if 'RENDER' in os.environ:
+  ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME', ''))
+  MIDDLEWARE.insert(1, 'whirenoise.middleware.WhiteNoiseMiddleware')
+
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
