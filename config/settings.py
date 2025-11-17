@@ -25,13 +25,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u&n7uzv+0(+lh99#y0c1%8wpu5fmxm)6=#sm^r^u83ylfxgz0s'
+
+SECRET_KEY =os.environ.get("SECRET_KEY")
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY environment variablz is not set !")
+
+"""  SECRET_KEY = 'django-insecure-hn7r)xkinksznnsdqh0@o8h-(dw^=kj@#tlp54^9=810+cy1=1'  """
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mon-site-personnel.onrender.com',
-                'asem.onrender.com']
+ALLOWED_HOSTS = ["mon-site-personnel.onrender.com",
+                "asem.onrender.com"]
 
 """
 CSRF_COOKIE_SECURE = True
@@ -97,14 +102,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-DATABASES = {
-          'default': dj_database_url.config(
-            default='sqlite:///db.sqlite3', conn_max_age=600,
-            ssl_require=not DEBUG
-          )
-}
-
 
 if 'DATABASE_URL' in os.environ:
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=False)
