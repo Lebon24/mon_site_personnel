@@ -32,11 +32,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['mon-site-personnel.onrender.com',
                 'asem.onrender.com']
 
-RENDER = os.environ.get("RENDER")
-if RENDER:
-    ALLOWED_HOSTS.append(os.environ["RENDER_EXTERNAL_HOSTNAME"])
-
-
 """
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -58,6 +53,10 @@ INSTALLED_APPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'boostrap4'
+
+if 'RENDER' in os.environ:
+    ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME', '')
+MIDDLEWARE.insert(1, 'whirenoise.middleware.WhiteNoiseMiddleware')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
