@@ -69,7 +69,7 @@ MIDDLEWARE = [
 
 if 'RENDER' in os.environ:
   ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME', ''))
-  MIDDLEWARE.insert(1, 'whirenoise.middleware.WhiteNoiseMiddleware')
+  MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
