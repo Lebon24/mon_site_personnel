@@ -11,6 +11,3 @@ env/
 # OS
 .DS_Store
 Thumbs.db
-staticfiles/
-=======
-staticfiles/
