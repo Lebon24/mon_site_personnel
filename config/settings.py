@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'boostrap4'
 
 if 'RENDER' in os.environ:
-    ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME', '')
+    ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME', ''))
 MIDDLEWARE.insert(1, 'whirenoise.middleware.WhiteNoiseMiddleware')
 
 MIDDLEWARE = [
