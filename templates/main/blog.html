@@ -31,8 +31,8 @@
                 </a>
             </h2>
             
-            <div class="prose max-w-none text-gray-600 leading-relaxed">
-                {{ article.contenu|linebreaks }}
+            <div class="prose max-w-none text-gray-600 leading-relaxed mb-4">
+                {{ article.contenu|striptags|truncatewords:40|linebreaks }}
             </div>
             
             <!-- Bouton lire plus (optionnel) -->
