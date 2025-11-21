@@ -158,7 +158,18 @@
             {% for projet in projets %}
             <div class="bg-white rounded-xl shadow-lg p-6 hover-scale hover-glow transition-all duration-300">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-xl"></span>
+                    <span class="text-xl">
+                        {% if projet.image %}
+<div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
+    <img src="{{ projet.image.url }}" alt="{{ projet.titre }}" 
+         class="w-full h-full object-cover">
+</div>
+{% else %}
+<div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+    <span class="text-white text-6xl font-bold">{{ forloop.counter }}</span>
+</div>
+{% endif %}
+                    </span>
                 </div>
                 <h3 class="text-xl font-bold mb-3 text-gray-800">{{ projet.titre }}</h3>
                 <p class="text-gray-600 mb-4">{{ projet.description|truncatewords:20 }}</p>
