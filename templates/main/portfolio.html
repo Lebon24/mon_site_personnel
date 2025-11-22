@@ -93,9 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover-scale hover-glow transition-all duration-300" 
                 data-category="{{ projet.categorie }}">
                 <!-- Image du projet -->
-                {% if projet.lien_code %}
+                {% if projet.image %}
                 <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
-                    <img src="{{ projet.lien_code }}" alt="{{ projet.titre }}" 
+                    <img src="https://lh3.googleusercontent.com/rd-d/ALs6j_Fmu8uWIUTebyx4p4O5rXjnjVE93LtWjK_Oi35YrjhBR66Wiki7gsb9cOzde7ZmKb743-l9mOCPED9inIqLuqQJoe_Ua3vD5Mpp8lsTTmAit8m6V_dYH0P6R0HsaXcxJ_xHANimzbT6BeMfQft1e4csKwfhELdH39mQJrN-o3JMsW-4zGyLoOhkudQ21JZ5H07vb2GqcTDejxZPlCRoSNMrmEIGlcCTvc7TU34eCVkMZRa_drOhcvZcgEWFQkwu4dNV7RuVDJ1_Kck1CasN7kPAphWM9a33bfuQhiRUDWZY749UfmEqwXh__o2QO24lOn8NqqmHY739RSAlc4-TE0FGc8cNdp07Nlto9cBUo2uz05ic_Wf8j92SFwPC9MJe6vfKxZze_zzMKoJlD0zY6ZyN4nXegR6IoW0Lkx9uxBhHCxg5ea6e6XHjkxjdHfsQom8zyyyCmxcpmlHGeR2i3ZEoIBmMmkMqDwhdyi6cbJiB45lPjBac7hODf-uT3tnzYJXqlX20gs2rZLenT_w4Sjd6YEaNZn2vtUhzuG5AblfxStHoa8XuIiV6I3YL5VXGq-rsM-N87Oq_ewG_Q7UYP_s38FZMtEQWWdDoP21JAkq2p-p5sq7RGrWEpegF0t3nSTkTJXRWKZhmos0ezkqhf0b9I6u01ugr9RGaEo4sx3jWPTwduLIXfZ0cILkbSlB1r123QhjsdVPbaBlCGmpAAgAVM5Y80STrZ8lwx0lUHRNxso4uz28vndvv2-xgyEgvpfEw5V0u04iYd75_SZ12y4mvBEi3SBVX2xOHmMbg7retc7ni-zRMAghVhDWXzMmtarGjywU_05vEe0v36mxUT31jG_XCCltu2LaNDoYLNJ7JMIgmai2WloHQoIbpVB1wa2rqdCRxwLBC3HpCCwPLsf5CrmTqLKda1xC1Hq1K92hgn0OjIOjyd_VNeTxy4zMK2FFzN2ToJr10nx3-laVzHIHclOZpQbJkrg4oJy2Udi6jtMDpWudITOkhX458B856l7bATmWYJbUaInzIkCtUWAS3KGKcWSzj2QXBZpaOyhxG-IRptvMrRvab86U4Y07ADRBa07xekZIqFCG1Cg=w523-h391-p-k-nu?auditContext=thumbnail" alt="{{ projet.titre }}" 
                          class="w-full h-full object-cover">
                 </div>
                 {% else %}
