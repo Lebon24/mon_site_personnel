@@ -93,9 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover-scale hover-glow transition-all duration-300" 
                 data-category="{{ projet.categorie }}">
                 <!-- Image du projet -->
-                {% if projet.image %}
+                {% if projet.lien_code %}
                 <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
-                    <img src="{{ projet.image.url }}" alt="{{ projet.titre }}" 
+                    <img src="{{ projet.lien_code }}" alt="{{ projet.titre }}" 
                          class="w-full h-full object-cover">
                 </div>
                 {% else %}
