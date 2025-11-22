@@ -14,6 +14,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import dj_database_url
+import cloudinary
+import cloudinary_storage
 
 load_dotenv()
 
@@ -50,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'main',
     'crispy_forms',
@@ -110,16 +114,6 @@ DATABASES = {
 }
 
 
-# Configuration Cloudinary
-import cloudinary
-import cloudinary_storage
-
-INSTALLED_APPS = [
-    # ... vos apps existantes ...
-    'cloudinary',
-    'cloudinary_storage',  # ← AJOUTEZ CETTE LIGNE
-    'django.contrib.staticfiles',
-]
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
