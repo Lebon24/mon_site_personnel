@@ -14,8 +14,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import dj_database_url
-import cloudinary
-import cloudinary_storage
 
 load_dotenv()
 
@@ -52,8 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
     'main',
     'crispy_forms',
@@ -113,19 +109,6 @@ DATABASES = {
   )
 }
 
-
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-# Exception pour les fichiers statiques
-WHITENOISE_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Password validation
