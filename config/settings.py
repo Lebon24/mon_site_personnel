@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'django_htmx',
 ]
 
-CRISPY_TEMPLATE_PACK = 'boostrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -108,6 +108,28 @@ DATABASES = {
     ssl_require=False
   )
 }
+
+
+# Configuration Cloudinary
+import cloudinary
+import cloudinary_storage
+
+INSTALLED_APPS = [
+    # ... vos apps existantes ...
+    'cloudinary',
+    'cloudinary_storage',  # ← AJOUTEZ CETTE LIGNE
+    'django.contrib.staticfiles',
+]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
