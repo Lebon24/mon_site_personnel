@@ -12,3 +12,5 @@ sqlparse==0.5.3
 typing_extensions==4.13.2
 tzdata==2025.2
 whitenoise==6.11.0
+django-cloudinary-storage==0.3.0
+cloudinary==1.41.0
